@@ -1,18 +1,17 @@
-const express = require('express')
-// const respond = require('../helpers/respond')
+module.exports = (express) => {
+    const router = express.Router();
 
-// Routes
-// const email = require('./routes/email')
+    const email = require('./routes/email');
+    const respond = require('../helpers/respond');
 
-const router = express.Router()
+    router.use('/email', email);
 
-// router.use('/email', email)
+    router.use('*', (req, res) => {
+        respond(res, {
+            code: 404,
+            message: "Endpoint doesn't exist",
+        });
+    });
 
-// router.use('*', (_, res) => {
-//   respond(res, {
-//     code: 404,
-//     message: "Endpoint doesn't exist",
-//   })
-// })
-
-module.export = router
+    return router;
+};
