@@ -1,0 +1,15 @@
+{
+    "restartable": "rs",
+    "ignore": [
+        ".git",
+        "node_modules/**/node_modules",
+        ".nuxt"
+    ],
+    "verbose": false,
+    "watch": [
+        "server/index.js"
+    ],
+    "env": {
+        "NODE_ENV": "development"
+    }
+}
